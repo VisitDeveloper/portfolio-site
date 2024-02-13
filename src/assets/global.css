@@ -1,0 +1,90 @@
+/* @import './style/main.scss'; */
+@tailwind base;
+@tailwind components;
+
+@font-face {
+  font-family: FarhangFont;
+  src: url('./fonts/FarhangDot1/fonts/woff2/FarhangDot1-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: FarhangDot1FaNum;
+  src: url('./fonts/FarhangDot1FaNum/woff2/FarhangDot1FaNum-Regular.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: NastaliqFont;
+  src: url('./fonts/IranNastaliq/IranNastaliq2.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url('./fonts/Roboto/woff2/Roboto-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@tailwind utilities;
+
+
+
+/* @layer base {
+  html {
+    font-family: "Roboto", system-ui, sans-serif;
+    font-family: "NastaliqFont", system-ui, sans-serif;
+  }
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  /* font-family: FarhangFont , NastaliqFont , Roboto ; */
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-tap-highlight-color: transparent;
+  
+}
+
+.content-image:hover .overlay {
+  height: 100%;
+}
+
+.overlay{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: transparent; */
+  border-radius: 23px;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.overlay:hover .change{
+  transform: rotate(270deg);
+  transition: .5s;
+}
+
+.icon-center{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  transform: rotate(90deg);
+  transition: .5s;
+}
