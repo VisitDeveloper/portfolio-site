@@ -21,7 +21,7 @@ function LetsTalk() {
           Let's Talk
         </Span>
 
-        <Link to={"/about"} className="overlay hover:change">
+        <Link to={"/contact"} className="overlay hover:change">
           <Span className="icon-center">
             <ArrowCircleRight size={40} className="change" />
           </Span>

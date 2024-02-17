@@ -3,7 +3,6 @@ import {
   // DynamicRenderingGlobal,
   MainCard,
   Span,
-  CopyBan,
   Summary,
   LetsTalk,
   Projects,
@@ -50,13 +49,11 @@ const HomeIndex = () => {
         </MainCard>
       </Div>
 
+
       <Projects/>
-
       <Stack/>
-
       <LetsTalk/>
-
-      <CopyBan />
+      
 
       {/* <DynamicRenderingGlobal
         type={Type_List_Component.CopyBan}

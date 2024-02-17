@@ -1,5 +1,4 @@
 /* eslint-disable prefer-spread */
-"use client";
 import { useState , JSX } from "react";
 
 interface PaginationCustomProps{
@@ -15,7 +14,7 @@ function PaginationCustom(props : PaginationCustomProps) {
   const totalPage = 20;
   const [page, setPage] = useState<number>(1);
   const [totalCountPage] = useState<Array<number>>(
-    Array.apply(null, Array(totalPage)).map(function (x, i) {
+    Array.apply(null, Array(totalPage)).map(function (x:any, i) {
       return i + 1;
     })
   );
@@ -88,3 +87,4 @@ function PaginationCustom(props : PaginationCustomProps) {
   );
 }
 export default PaginationCustom;
+

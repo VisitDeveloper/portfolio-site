@@ -4,8 +4,10 @@ import { MainLayout } from "components/_index";
 import React from "react";
 
 const AboutPage = React.lazy(() => import('pages/About'));
+const ContactPage = React.lazy(() => import('pages/Contact'));
 const HomePage = React.lazy(() => import('pages/Home'));
 const NotFoundPage = React.lazy(() => import('pages/NotFound'));
+const ProjectsPage = React.lazy(() => import('pages/ProjectsPage'));
 
 function App() {
   const location = useLocation();
@@ -18,6 +20,12 @@ function App() {
           </Route>
           <Route element={<MainLayout/>}>
             <Route path="/about" element={<AboutPage/>} />
+          </Route>
+          <Route element={<MainLayout/>}>
+            <Route path="/contact" element={<ContactPage/>} />
+          </Route>
+          <Route element={<MainLayout/>}>
+            <Route path="/project" element={<ProjectsPage/>}  />
           </Route>
           
           <Route path="*" element={<NotFoundPage/>} />

@@ -52,3 +52,13 @@ export { default as Summary } from "components/overall-elements/Summary";
 export { default as LetsTalk } from "components/overall-elements/LetsTalk";
 export { default as Projects } from "components/overall-elements/Projects";
 export { default as Stack } from "components/overall-elements/Stack";
+export { default as HeaderMainCard } from "components/overall-elements/HeaderMainCard";
+export { default as EducationCard } from "components/overall-elements/Education";
+export { default as ExperienceCard } from "components/overall-elements/ExperienceCard";
+export { default as Skills } from "components/overall-elements/Skills";
+export { default as Freelance } from 'components/overall-elements/Freelance';
+
+// Icon components
+export { default as StackOverFlowIcon } from "components/icon/stackoverflow";
+export { default as GithubIcon } from "components/icon/Github";
+export { default as LinkedinIcon } from "components/icon/Linkedin";

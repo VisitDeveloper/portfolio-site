@@ -1,7 +1,22 @@
+import {
+  EducationCard,
+  LetsTalk,
+  Summary,
+  ExperienceCard,
+  Skills,
+  Freelance
+} from "components/_index";
 
-
-export default function About() {
+function About() {
   return (
-    <div>About</div>
-  )
+    <>
+      <Summary />
+      <Skills/>
+      <EducationCard />
+      <ExperienceCard />
+      <Freelance/>
+      <LetsTalk />
+    </>
+  );
 }
+export default About;

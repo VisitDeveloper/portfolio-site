@@ -1,26 +1,33 @@
-
-import { Button, Div, Span , MainCard } from 'components/_index'
-import { HasRipple } from 'components/pure-components/Button'
-import { ArrowRight } from 'iconsax-react'
-import { useState } from 'react';
+import { Button, Div, Span, MainCard } from "components/_index";
+import { HasRipple } from "components/pure-components/Button";
+import { ArrowRight, DocumentText } from "iconsax-react";
+import { useState } from "react";
+import { useNavigate , useLocation  } from "react-router-dom";
 
 function Summary() {
+  const [hoverEvent, setHoverEvent] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const [hoverEvent, setHoverEvent] = useState<boolean>(false);
-
-    const handleOnHoverEvent = () => {
-      setHoverEvent(true);
-    };
-    const handleOnHoverLeaveEvent = () => {
-      setHoverEvent(false);
-    };
+  const handleOnHoverEvent = () => {
+    setHoverEvent(true);
+  };
+  const handleOnHoverLeaveEvent = () => {
+    setHoverEvent(false);
+  };
 
   return (
     <div>
-         <MainCard className="flex flex-col gap-3 max-w-full">
-        <Div className="font-semibold text-3xl dark:text-white text-textLight">
+      <MainCard
+        headerTitle={"Summary"}
+        icon={
+          <DocumentText className="dark:text-textgreen text-lightTextColor" />
+        }
+        className="flex flex-col gap-3 max-w-full"
+      >
+        {/* <Div className="font-semibold text-3xl dark:text-white text-textLight">
           Hello there! AmirAli here!
-        </Div>
+        </Div> */}
         <Div className="dark:text-textDark text-textLight text-justify">
           As a seasoned frontend developer with +5 years of experience,I
           specialize in React, Next.js, React Native and Angular development. My
@@ -37,8 +44,9 @@ function Summary() {
           Embracing agile methodologies, notably Scrum, fosters effective
           collaboration and ensures the delivery of top-tier software solutions.
         </Div>
-        <Div className="w-full">
+        {location.pathname === '/about' ? null : <Div className="w-full">
           <Button
+            onClick={() => navigate('/about')}
             onMouseEnter={handleOnHoverEvent}
             onMouseLeave={handleOnHoverLeaveEvent}
             paletteColor="main-page"
@@ -55,9 +63,9 @@ function Summary() {
           >
             <Span className="text-sm font-semibold">More about Me</Span>
           </Button>
-        </Div>
+        </Div>}
       </MainCard>
     </div>
-  )
+  );
 }
 export default Summary;

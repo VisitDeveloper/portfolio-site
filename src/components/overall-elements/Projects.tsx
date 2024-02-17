@@ -3,7 +3,6 @@ import {
   Chip,
   Col,
   Div,
-  H1,
   Img,
   MainCard,
   Row,
@@ -12,9 +11,11 @@ import {
 import { HasRipple } from "components/pure-components/Button";
 import { ArrowRight, Edit } from "iconsax-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Projects() {
   const [hoverEvent, setHoverEvent] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const handleOnHoverEvent = () => {
     setHoverEvent(true);
@@ -25,13 +26,9 @@ function Projects() {
 
   return (
     <>
-      <MainCard>
-        <Div className="flex flex-row gap-3 items-center">
-          <Span>
-            <Edit className="dark:text-textgreen text-lightTextColor" />
-          </Span>
-          <H1 className="text-2xl">Projects</H1>
-        </Div>
+      <MainCard headerTitle={"Projects"}
+          icon={<Edit className="dark:text-textgreen text-lightTextColor" />}>
+        
         <Row>
           <Col className="col-span-12 sm:col-span-6">
             <Div className="flex flex-col items-start gap-2 mt-4 ">
@@ -55,7 +52,10 @@ function Projects() {
           <Col className="col-span-12 sm:col-span-6">
             <Div className="flex flex-col items-start gap-2 mt-4 ">
               <Div>
-                <Img src="./sky.webp" className="w-11/12 h-11/12 rounded-2xl" />
+                <Img
+                  src="./sky.webp"
+                  className="cursor-pointer duration-500 w-11/12 h-11/12 rounded-2xl hover:scale-95 hover:duration-500 "
+                />
               </Div>
 
               <Div className="flex flex-row gap-2 mt-0">
@@ -72,6 +72,7 @@ function Projects() {
           <Col className="col-span-12 mt-4">
             <Div className="w-full">
               <Button
+              onClick={() => navigate('/project')}
                 onMouseEnter={handleOnHoverEvent}
                 onMouseLeave={handleOnHoverLeaveEvent}
                 paletteColor="main-page"
