@@ -43,7 +43,7 @@ const Freelance = () => {
               Tehran , Iran
             </Span>
             <Span className="mt-[-5px] text-xs dark:text-textDark text-textLight text-justify">
-              Chinobin" was a data analysis project designed to visualize data
+              "Chinobin" was a data analysis project designed to visualize data
               using charts, similarto Golsnod'ssite but tailored for Persian
               users with some uniquefeatures.
             </Span>
