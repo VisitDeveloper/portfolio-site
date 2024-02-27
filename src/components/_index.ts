@@ -39,7 +39,7 @@ export { default as Select } from "./pure-components/Select/index";
 export { default as Tooltip } from "./pure-components/Tooltip/index";
 export { default as ChangeLang } from "./pure-components/ChangeLang/index";
 export { default as Chip } from "components/pure-components/Chip/index";
-
+export { default as MouseMove } from "components/pure-components/MouseMoveCustom/index";
 // layout
 export { default as FooterLayout } from "components/layout/Footer";
 export { default as HeaderLayout } from "components/layout/Header";
@@ -56,7 +56,7 @@ export { default as HeaderMainCard } from "components/overall-elements/HeaderMai
 export { default as EducationCard } from "components/overall-elements/Education";
 export { default as ExperienceCard } from "components/overall-elements/ExperienceCard";
 export { default as Skills } from "components/overall-elements/Skills";
-export { default as Freelance } from 'components/overall-elements/Freelance';
+export { default as Freelance } from "components/overall-elements/Freelance";
 
 // Icon components
 export { default as StackOverFlowIcon } from "components/icon/stackoverflow";

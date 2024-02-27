@@ -6,7 +6,6 @@ import { Moon, Sun1 } from "iconsax-react";
 const DarkModeBtn = () => {
   const [mounted, setMounted] = useState<boolean | null>(false);
   const themeInLocalStorage = localStorage.getItem('theme')
-  console.log('themeInLocalStorage', themeInLocalStorage)
   const [toggleSwitch, setToggleSwitch] = useState<boolean>(themeInLocalStorage === 'light' ? false : true);
   const { systemTheme, theme, setTheme } = useTheme();
 

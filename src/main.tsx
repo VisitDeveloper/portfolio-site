@@ -6,18 +6,14 @@ import ThemeProviders from "config/theme/ThemeProvider.tsx";
 import "./assets/global.css";
 
 const Loading = () => {
-  return (
-    <>
-      ... loading!
-    </>
-  )
-}
+  return <>... loading!</>;
+};
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProviders>
-        <Suspense fallback={<Loading/>}>
+        <Suspense fallback={<Loading />}>
           <App />
         </Suspense>
       </ThemeProviders>

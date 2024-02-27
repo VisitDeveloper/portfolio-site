@@ -13,10 +13,7 @@ import { Instagram, Mobile, Sms, User } from "iconsax-react";
 import { useTheme } from "next-themes";
 
 function Contacts() {
-  // const themeStatus = localStorage.getItem('theme');
-  // console.log('themeStatus', themeStatus)
-  const { systemTheme, theme, setTheme } = useTheme();
-  console.log("theme", theme);
+  const {theme} = useTheme();
   return (
     <>
       <MainCard>

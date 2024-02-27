@@ -5,7 +5,6 @@ import WrapperList, {
 import { CreateObjectLiterals } from "tools/object-literals";
 import { Fragment } from "react";
 import { HeaderLayout, FooterLayout, CopyBan } from "components/_index";
-import { CopyBanProps } from "components/overall-elements/CopyBan";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export enum Type_List_Component {
@@ -26,7 +25,7 @@ interface ObjectTest {
 
 interface DynamicObjectLiteralsProps {
   type: Type_List_Component;
-  configKey?: ConfigListProps | ConfigWrapperListProps | CopyBanProps;
+  configKey?: ConfigListProps | ConfigWrapperListProps;
 }
 
 function DynamicObjectLiterals(props: DynamicObjectLiteralsProps) {
@@ -37,7 +36,7 @@ function DynamicObjectLiterals(props: DynamicObjectLiteralsProps) {
     ),
     HeaderLayout: <HeaderLayout />,
     FooterLayout: <FooterLayout />,
-    CopyBan : <CopyBan {...(props?.configKey as CopyBanProps)}/>
+    CopyBan: <CopyBan />,
   };
 
   const FinalObjectRendered: JSX.Element = CreateObjectLiterals(

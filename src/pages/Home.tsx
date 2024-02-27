@@ -2,16 +2,15 @@ import {
   Div,
   // DynamicRenderingGlobal,
   MainCard,
-  Span,
   Summary,
   LetsTalk,
   Projects,
-  Stack,
   Row,
   Col,
   P,
   H1,
 } from "components/_index";
+import { Typewriter } from "react-simple-typewriter";
 // import { Type_List_Component } from "components/dynamic-renderer/main-dynamic-rendering-components/DynamicMainComponents";
 
 const HomeIndex = () => {
@@ -47,31 +46,32 @@ const HomeIndex = () => {
               </P>
             </Div>
             <Div>
-              
               <H1 className="text-lg mt-1">Engineering</H1>
               <P className="mt-[15px] text-xs dark:text-textDark text-textLight text-justify">
                 SOLID Principle, Design Patterns, Web Services (RESTful), Agile
                 Principles and Scrum Methodology
               </P>
             </Div>
-            {/* <Div>
-              <H1 className="text-lg">Engineering</H1>
-              <P className="mt-[15px] text-xs dark:text-textDark text-textLight text-justify">
-                SOLID Principle, Design Patterns, Web Services (RESTful), Agile
-                Principles and Scrum Methodology
-              </P>
-            </Div> */}
           </Div>
         </Col>
         <Col className="col-span-12 sm:col-span-6 mx-1">
           <MainCard className="flex flex-row-reverse justify-between items-center w-full">
-           data
+            <Div className="bg-lightBackground dark:bg-darkBackground my-4 px-5 py-6 rounded-3xl text-4xl">
+              <Typewriter
+                words={["React.js", "Next.js", "Angular", "React Native"]}
+                loop={6}
+                cursor
+                cursorStyle="|"
+                typeSpeed={100}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </Div>
           </MainCard>
         </Col>
       </Row>
 
       <Projects />
-      {/* <Stack/> */}
       <LetsTalk />
 
       {/* <DynamicRenderingGlobal

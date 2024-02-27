@@ -1,9 +1,6 @@
 import MainCard from "./MainCard";
 import { Div, Span } from "components/_index";
 
-// export interface CopyBanProps {
-//     children?: React.ReactNode | React.ReactElement | JSX.Element 
-// } 
 
 function CopyBan() {
   return (
@@ -20,7 +17,6 @@ function CopyBan() {
         <Span className="dark:text-[#838383] text-[#212121] text-sm">
           Made By Amirali
         </Span>
-        {/* {props.children} */}
       </Div>
     </MainCard>
   );
