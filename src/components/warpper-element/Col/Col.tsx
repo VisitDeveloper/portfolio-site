@@ -1,3 +1,4 @@
+import { Div } from 'components/_index';
 import React from 'react'
 
 
@@ -8,6 +9,7 @@ interface ColProps {
     mdColSpan?:number;
     responsive ?: Responsive;
     className?: string;
+    onClick?: () => void;
   }
 
 export default function Col(props :ColProps) {
@@ -71,8 +73,8 @@ export default function Col(props :ColProps) {
       
 
   return (
-    <div className={`${getfindColSpan(colSpan!)} ${getMdColSpan(mdColSpan!)} ${className}`}>
+    <Div className={`${getfindColSpan(colSpan!)} ${getMdColSpan(mdColSpan!)} ${className}`} {...props} >
         {children}
-    </div>
+    </Div>
   )
 }

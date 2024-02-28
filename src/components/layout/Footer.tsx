@@ -1,5 +1,5 @@
 import { Div, Footer, Tooltip } from "components/_index";
-import { Edit2, Home, ProgrammingArrow, Send2, User } from "iconsax-react";
+import { Edit2, Home, Send2, User } from "iconsax-react";
 import { Link } from "react-router-dom";
 
 function FooterLayout() {
@@ -21,21 +21,13 @@ function FooterLayout() {
           </Link>
         </Tooltip>
         <Tooltip text={"Projects"}>
-          <Link to={'/about'} className="hover:shadow-normalLight dark:hover:shadow-normal hover:transition hover:duration-500 duration-500 hover:ease-in-out dark:bg-neutral-900 bg-[#888] flex justify-center items-center size-14 rounded-2xl cursor-pointer text-center">
+          <Link to={'/project'} className="hover:shadow-normalLight dark:hover:shadow-normal hover:transition hover:duration-500 duration-500 hover:ease-in-out dark:bg-neutral-900 bg-[#888] flex justify-center items-center size-14 rounded-2xl cursor-pointer text-center">
             <Edit2
               size="25"
               className="dark:text-darkTextColor text-lightTextColor"
             />
           </Link>
         </Tooltip>
-        {/* <Tooltip text={"Stack"}>
-          <Link to={'/about'} className="hover:shadow-normalLight dark:hover:shadow-normal hover:transition hover:duration-500 duration-500 hover:ease-in-out dark:bg-neutral-900 bg-[#888] flex justify-center items-center size-14 rounded-2xl cursor-pointer text-center">
-            <ProgrammingArrow
-              size="25"
-              className="dark:text-darkTextColor text-lightTextColor"
-            />
-          </Link>
-        </Tooltip> */}
         <Tooltip text={"Contact"}>
           <Link to={'/contact'} className="hover:shadow-normalLight dark:hover:shadow-normal hover:transition hover:duration-500 duration-500 hover:ease-in-out dark:bg-neutral-900 bg-[#888] flex justify-center items-center size-14 rounded-2xl cursor-pointer text-center">
             <Send2

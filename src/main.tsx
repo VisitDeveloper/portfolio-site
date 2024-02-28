@@ -4,6 +4,7 @@ import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
 import ThemeProviders from "config/theme/ThemeProvider.tsx";
 import "./assets/global.css";
+import { Providers } from "store/provider.tsx";
 
 const Loading = () => {
   return <>... loading!</>;
@@ -11,12 +12,14 @@ const Loading = () => {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ThemeProviders>
-        <Suspense fallback={<Loading />}>
-          <App />
-        </Suspense>
-      </ThemeProviders>
-    </BrowserRouter>
+    <Suspense fallback={<Loading />}>
+      <Providers>
+        <ThemeProviders>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ThemeProviders>
+      </Providers>
+    </Suspense>
   </React.StrictMode>
 );

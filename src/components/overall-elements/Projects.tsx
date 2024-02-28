@@ -12,61 +12,25 @@ import { HasRipple } from "components/pure-components/Button";
 import { ArrowRight, Edit } from "iconsax-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ListSearchItem, DataCardProject } from "model/components/projects";
+import {
+  dataCardProjects,
+  dataCardProjectsAll,
+  dataCardProjectsPersonal,
+} from "config/dataProjects";
+import { useAppDispatch } from "store/hooks";
+import { saveObjects } from "store/slices/saveProjects";
 
-
-interface DataCardProject {
-  id: number ;
-  desc : string;
-  type : string;
-  image: string;
+interface ProjectsProps {
+  noButton?: boolean;
 }
 
-const dataCardProjectsAll : Array<DataCardProject>  =[
-  {
-    id:0,
-    image:'' ,
-    desc : '',
-    type:'' ,
-  }
-]
-const dataCardProjectsPersonal : Array<DataCardProject>  =[
-  {
-    id:0,
-    image:'' ,
-    desc : 'Test Framer motion',
-    type:'Personal',
-  },
-  {
-    id:0,
-    image:'',
-    desc : 'Music Applicaton',
-    type:'Personal',
-  },
-  {
-    id:0,
-    image:'',
-    desc : 'Other portfolio page',
-    type:'Personal',
-  }
-]
-const dataCardProjects : Array<DataCardProject>  =[
-  {
-    id:0,
-    image:'' ,
-    desc : '',
-    type:'' ,
-  }
-]
-
-
-interface ListSearchItem {
-  type: string;
-  status: boolean;
-  id: number;
-}
-
-function Projects() {
+function Projects(props: ProjectsProps) {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [hoverEvent, setHoverEvent] = useState<boolean>(false);
+  const [showProjects, setShowProjects] =
+    useState<Array<DataCardProject>>(dataCardProjectsAll);
   const [listFilterItem, setListFilterItem] = useState<Array<ListSearchItem>>([
     {
       type: "All",
@@ -79,12 +43,11 @@ function Projects() {
       id: 1,
     },
     {
-      type: "Freelance",
+      type: "Project",
       status: false,
       id: 2,
     },
   ]);
-  const navigate = useNavigate();
 
   const handleOnHoverEvent = () => {
     setHoverEvent(true);
@@ -94,15 +57,10 @@ function Projects() {
   };
 
   const changeFilterSearch = (ID: number) => {
-    // setListFilterItem()
-
     const newState = listFilterItem.map((obj: ListSearchItem) => {
-      // 👇️ if id equals 2, update country property
       if (ID === obj.id) {
         return { ...obj, status: true };
       }
-
-      // 👇️ otherwise return the object as is
       return { ...obj, status: false };
     });
 
@@ -110,8 +68,26 @@ function Projects() {
   };
 
   useEffect(() => {
-    console.log("listFilterItem", listFilterItem);
+    const afterChangeStateToShow = () => {
+      const findItem = [...listFilterItem];
+      const findBoolean = findItem.find((item) => item.status === true);
+
+      if (findBoolean?.type === "Personal") {
+        setShowProjects(dataCardProjectsPersonal);
+      } else if (findBoolean?.type === "Project") {
+        setShowProjects(dataCardProjects);
+      } else {
+        setShowProjects(dataCardProjectsAll);
+      }
+    };
+
+    afterChangeStateToShow();
   }, [listFilterItem]);
+
+  const changeRouteWithClickOnItem = (ID: number, obj: DataCardProject) => {
+    navigate(`/project/${ID}`);
+    dispatch(saveObjects(obj));
+  };
 
   return (
     <>
@@ -137,67 +113,67 @@ function Projects() {
           })}
         </Div>
         <Row>
-          <Col className="col-span-12 sm:col-span-6">
-            <Div className="flex flex-col items-start gap-2 mt-4 ">
-              <Div>
-                <Img
-                  src="./sky.webp"
-                  className="cursor-pointer duration-500 w-full sm:w-11/12 h-11/12 rounded-2xl hover:scale-95 hover:duration-500 "
-                />
+          {showProjects.length !== 0 ? (
+            showProjects.map((item: DataCardProject) => {
+              return (
+                <Col
+                  key={item.id}
+                  className="col-span-12 sm:col-span-6"
+                  onClick={() => changeRouteWithClickOnItem(item?.id!, item)}
+                >
+                  <Div className="flex flex-col items-start gap-2 mt-4 ">
+                    <Div>
+                      <Img
+                        src={item.image}
+                        className=" cursor-pointer duration-500 w-full sm:w-11/12 h-11/12 rounded-2xl hover:scale-95 hover:duration-500 "
+                      />
+                    </Div>
+
+                    <Div className="flex flex-row gap-2 mt-0 items-center">
+                      <Chip type="flag">{item.type}</Chip>
+                      <Chip>Bussiness</Chip>
+                      <Chip>Image</Chip>
+                    </Div>
+
+                    <Span className="dark:text-textDark text-textLight text-base">
+                      {item.desc}
+                    </Span>
+                  </Div>
+                </Col>
+              );
+            })
+          ) : (
+            <Span className="dark:text-textDark text-textLight text-justify mt-4">
+              There is not any data!
+            </Span>
+          )}
+
+          {props.noButton === false ? (
+            <Col className="col-span-12 mt-4">
+              <Div className="w-full">
+                <Button
+                  onClick={() => navigate("/project")}
+                  onMouseEnter={handleOnHoverEvent}
+                  onMouseLeave={handleOnHoverLeaveEvent}
+                  paletteColor="main-page"
+                  className="w-[100%] h-10 flex justify-center items-center rounded-lg"
+                  hasRipple={HasRipple.withOutRipple}
+                  imgRight={
+                    <ArrowRight
+                      size="17"
+                      className={`box-border ${
+                        hoverEvent ? "ml-2 duration-500" : "duration-500"
+                      } dark:text-darkTextColor text-lightTextColor`}
+                    />
+                  }
+                >
+                  <Span className="text-sm font-semibold">All Projects</Span>
+                </Button>
               </Div>
-
-              <Div className="flex flex-row gap-2 mt-0">
-                <Chip>Image</Chip>
-                <Chip>Bussiness</Chip>
-              </Div>
-
-              <Span className="dark:text-textDark text-textLight text-base">
-                Apex Wallet Landing Page
-              </Span>
-            </Div>
-          </Col>
-          <Col className="col-span-12 sm:col-span-6">
-            <Div className="flex flex-col items-start gap-2 mt-4 ">
-              <Div>
-                <Img
-                  src="./sky.webp"
-                  className="cursor-pointer duration-500 w-full sm:w-11/12 h-11/12 rounded-2xl hover:scale-95 hover:duration-500 "
-                />
-              </Div>
-
-              <Div className="flex flex-row gap-2 mt-0">
-                <Chip>Image</Chip>
-                <Chip>Bussiness</Chip>
-              </Div>
-
-              <Span className="dark:text-textDark text-textLight text-base">
-                Apex Wallet Landing Page
-              </Span>
-            </Div>
-          </Col>
-
-          <Col className="col-span-12 mt-4">
-            <Div className="w-full">
-              <Button
-                onClick={() => navigate("/project")}
-                onMouseEnter={handleOnHoverEvent}
-                onMouseLeave={handleOnHoverLeaveEvent}
-                paletteColor="main-page"
-                className="w-[100%] h-10 flex justify-center items-center rounded-lg"
-                hasRipple={HasRipple.withOutRipple}
-                imgRight={
-                  <ArrowRight
-                    size="17"
-                    className={`box-border ${
-                      hoverEvent ? "ml-2 duration-500" : "duration-500"
-                    } dark:text-darkTextColor text-lightTextColor`}
-                  />
-                }
-              >
-                <Span className="text-sm font-semibold">All Projects</Span>
-              </Button>
-            </Div>
-          </Col>
+            </Col>
+          ) : (
+            <></>
+          )}
         </Row>
       </MainCard>
     </>

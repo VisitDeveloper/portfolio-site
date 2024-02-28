@@ -8,15 +8,18 @@ import rootReducer from './rootReducer';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['my_api']
+  // blacklist: ['my_api']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+
 export const store = configureStore({
   reducer: persistedReducer,
-  //.concat(iranGovApi.middleware)
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+  devTools: process.env.NODE_ENV !== "production",
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false
+  })
 });
 
 setupListeners(store.dispatch);

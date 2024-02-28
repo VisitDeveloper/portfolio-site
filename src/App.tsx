@@ -8,6 +8,7 @@ const ContactPage = React.lazy(() => import("pages/Contact"));
 const HomePage = React.lazy(() => import("pages/Home"));
 const NotFoundPage = React.lazy(() => import("pages/NotFound"));
 const ProjectsPage = React.lazy(() => import("pages/ProjectsPage"));
+const ProjectsPageById = React.lazy(() => import("pages/ProjectsPageById"));
 
 function App() {
   const location = useLocation();
@@ -28,8 +29,13 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="/project" element={<ProjectsPage />} />
           </Route>
+          <Route element={<MainLayout />}>
+            <Route path="/project/:ID" element={<ProjectsPageById />} />
+          </Route>
 
-          <Route path="*" element={<NotFoundPage />} />
+          <Route element={<MainLayout />}>
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
         </Routes>
       </AnimatePresence>
     </>
