@@ -130,9 +130,23 @@ function Projects(props: ProjectsProps) {
                     </Div>
 
                     <Div className="flex flex-row gap-2 mt-0 items-center">
-                      <Chip type="flag">{item.type}</Chip>
-                      <Chip>Bussiness</Chip>
-                      <Chip>Image</Chip>
+                      
+                      {item?.flag?.length !== 0
+                        ? item?.flag?.map((it: string, i: number) => {
+                            return (
+                              <Chip
+                                key={i}
+                                type={
+                                  it === item?.type!
+                                    ? "flag"
+                                    : "hashtag"
+                                }
+                              >
+                                {it}
+                              </Chip>
+                            );
+                          })
+                        : null}
                     </Div>
 
                     <Span className="dark:text-textDark text-textLight text-base">

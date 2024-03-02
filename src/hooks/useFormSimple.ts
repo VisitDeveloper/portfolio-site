@@ -53,7 +53,7 @@ function useContactusForm<T>(dataArray: T): ReturnHookUseForm {
 
     const checkeIsValid = [...newData];
     const validate = checkeIsValid.map(
-      (item: DataFormArrayImplements, index: number, array: Array<DataFormArrayImplements>) => {
+      (item: DataFormArrayImplements, _index: number, array: Array<DataFormArrayImplements>) => {
         const inputRequiredButUndefinedValue =
           (item.required && item.value === '') || item.value === undefined ? false : true;
         return array.every((item) => item.patternStatus && inputRequiredButUndefinedValue);

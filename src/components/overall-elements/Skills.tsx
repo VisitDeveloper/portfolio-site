@@ -2,9 +2,9 @@ import { Diamonds, RecordCircle } from "iconsax-react";
 import MainCard from "./MainCard";
 import { Div, Span } from "components/_index";
 
-interface SkillsProps {}
 
-const Skills = (props: SkillsProps) => {
+
+const Skills = () => {
   return (
     <MainCard
       icon={<Diamonds className="dark:text-textgreen text-lightTextColor" />}

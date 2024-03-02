@@ -11,7 +11,7 @@ export enum HasRipple {
   withOutRipple = 'withOutRipple'
 }
 
-export type PalletColor ='disable' | 'fill-main' | 'outlined-main' | 'main-page';
+export type PalletColor ='disable' | 'fill-main' | 'outlined-main' | 'main-page' | 'normal';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   // buttonSize?: 'small' | 'medium' | 'large';
@@ -34,7 +34,8 @@ const styleMap = {
     'bg-gradient-to-r text-white to-[#00A3FF] from-[#5B44E7] border font-semibold text-gray-m-50 py-2 px-8 border-[2px] px-14',
   disable: '',
   'outlined-main': 'bg-white borderImage',
-  'main-page':'dark:bg-neutral-800 bg-[#999] w-full'
+  'main-page':'dark:bg-neutral-800 bg-[#999] w-full',
+  'normal':'dark:bg-neutral-800 bg-[#999]'
 };
 
 const Button: FC<ButtonProps> = ({

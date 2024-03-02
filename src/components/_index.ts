@@ -57,6 +57,7 @@ export { default as EducationCard } from "components/overall-elements/Education"
 export { default as ExperienceCard } from "components/overall-elements/ExperienceCard";
 export { default as Skills } from "components/overall-elements/Skills";
 export { default as Freelance } from "components/overall-elements/Freelance";
+export { default as ProjectByIdTitle } from "components/overall-elements/ProjectByIdTitle";
 
 // Icon components
 export { default as StackOverFlowIcon } from "components/icon/stackoverflow";
