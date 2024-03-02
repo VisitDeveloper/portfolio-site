@@ -9,11 +9,11 @@ import {
   LinkedinIcon,
   A,
 } from "components/_index";
-import { Instagram, Mobile, Sms, User } from "iconsax-react";
+import { Instagram, Mobile, Send2, Sms, User, Whatsapp } from "iconsax-react";
 import { useTheme } from "next-themes";
 
 function Contacts() {
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   return (
     <>
       <MainCard>
@@ -53,7 +53,11 @@ function Contacts() {
             </Div>
           </Col>
           <Col className="col-span-12 sm:col-span-6 m-2 ">
-            <A href="https://stackoverflow.com/users/17298985/amirali-hatami" target="_blank" className="flex flex-row gap-2 bg-[#b3b3b3] dark:bg-[#232323] rounded-lg p-2">
+            <A
+              href="https://stackoverflow.com/users/17298985/amirali-hatami"
+              target="_blank"
+              className="flex flex-row gap-2 bg-[#b3b3b3] dark:bg-[#232323] rounded-lg p-2"
+            >
               <StackOverFlowIcon
                 width={25}
                 height={25}
@@ -64,7 +68,11 @@ function Contacts() {
             </A>
           </Col>
           <Col className="col-span-12 sm:col-span-6 m-2 ">
-            <A href="https://github.com/VisitDeveloper" target="_blank" className="flex flex-row gap-2 bg-[#b3b3b3] dark:bg-[#232323] rounded-lg p-2">
+            <A
+              href="https://github.com/VisitDeveloper"
+              target="_blank"
+              className="flex flex-row gap-2 bg-[#b3b3b3] dark:bg-[#232323] rounded-lg p-2"
+            >
               <GithubIcon
                 height="25"
                 width="25"
@@ -75,7 +83,11 @@ function Contacts() {
           </Col>
 
           <Col className="col-span-12 sm:col-span-6 m-2 ">
-            <A href="https://www.linkedin.com/in/amir-ali-hatami-a183791b7/" target="_blank" className="flex flex-row gap-2 bg-[#b3b3b3] dark:bg-[#232323] rounded-lg p-2">
+            <A
+              href="https://www.linkedin.com/in/amir-ali-hatami-a183791b7/"
+              target="_blank"
+              className="flex flex-row gap-2 bg-[#b3b3b3] dark:bg-[#232323] rounded-lg p-2"
+            >
               <LinkedinIcon
                 height="25"
                 width="25"
@@ -84,7 +96,25 @@ function Contacts() {
               <Span className="font-semibold">Linkedin</Span>
             </A>
           </Col>
-          
+          <Col className="col-span-12 sm:col-span-6 m-2 ">
+            <Div className="flex flex-row gap-2 bg-[#b3b3b3] dark:bg-[#232323] rounded-lg p-2">
+              <Whatsapp
+                size="25"
+                className="text-textChipLight dark:text-headerTextTitle"
+              />
+              <Span className="font-semibold">+989190707875</Span>
+            </Div>
+          </Col>
+          <Col className="col-span-12 sm:col-span-6 m-2 ">
+            <Div className="flex flex-row gap-2 bg-[#b3b3b3] dark:bg-[#232323] rounded-lg p-2">
+              <Send2
+                size="25"
+                className="text-textChipLight dark:text-headerTextTitle"
+              />
+              
+              <Span className="font-semibold">@fire_full32</Span>
+            </Div>
+          </Col>
         </Row>
       </MainCard>
     </>

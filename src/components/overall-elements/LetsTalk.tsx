@@ -15,7 +15,7 @@ function LetsTalk() {
           className="absolute w-full h-full top-0 left-0 object-cover rounded-3xl bg-transparent"
         />
         <Span
-          className=" rounded-[21.9px]  flex flx-row justify-center items-center w-full h-full text-[150px]  dark:bg-darkBackground"
+          className=" rounded-[21.9px]  flex flx-row justify-center items-center w-full h-full text-[70px] min-[370px]:text-[90px]  min-[606px]:text-[150px]  dark:bg-darkBackground"
           style={{ mixBlendMode: "multiply" }}
         >
           Let's Talk
